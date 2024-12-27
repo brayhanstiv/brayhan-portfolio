@@ -1,0 +1,10 @@
+{
+  "Navbar": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "resume": "Currículo",
+    "work": "Trabajo",
+    "contact": "Contacto",
+    "hire_me": "Contrátame"
+  }
+}

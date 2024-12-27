@@ -9,8 +9,8 @@ import { GithubIcon } from "@/components/icons";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-xl text-center justify-center">
+    <section className='flex flex-col items-center justify-center gap-4 py-8 md:py-10'>
+      <div className='inline-block max-w-xl text-center justify-center'>
         <span className={title()}>Make&nbsp;</span>
         <span className={title({ color: "violet" })}>beautiful&nbsp;</span>
         <br />
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex gap-3">
+      <div className='flex gap-3'>
         <Link
           isExternal
           className={buttonStyles({
@@ -30,7 +30,7 @@ export default function Home() {
             radius: "full",
             variant: "shadow",
           })}
-          href={siteConfig.links.docs}
+          href={siteConfig.links.github}
         >
           Documentation
         </Link>
@@ -44,10 +44,10 @@ export default function Home() {
         </Link>
       </div>
 
-      <div className="mt-8">
-        <Snippet hideCopyButton hideSymbol variant="bordered">
+      <div className='mt-8'>
+        <Snippet hideCopyButton hideSymbol variant='bordered'>
           <span>
-            Get started by editing <Code color="primary">app/page.tsx</Code>
+            Get started by editing <Code color='primary'>app/page.tsx</Code>
           </span>
         </Snippet>
       </div>
