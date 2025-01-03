@@ -2,8 +2,10 @@ import { title } from "@/components/primitives";
 
 export default function HomePage() {
   return (
-    <div>
-      <h1 className={title()}>Home</h1>
-    </div>
+    <section className="h-full">
+      <div className="container mx-auto">
+        <h1 className={title()}>Home</h1>
+      </div>
+    </section>
   );
 }
