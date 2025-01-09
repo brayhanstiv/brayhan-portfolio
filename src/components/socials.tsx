@@ -11,16 +11,23 @@ const socials = [
 
 type SocialProps = {
   containerStyles: string;
+  subContainerStyles: string;
   iconStyles: string;
 };
 
-const Socials = ({ containerStyles, iconStyles }: SocialProps) => {
+const Socials = ({
+  containerStyles,
+  subContainerStyles,
+  iconStyles,
+}: SocialProps) => {
   return (
     <div className={containerStyles}>
       {socials.map((item, index) => {
         return (
           <Link key={index} isExternal href={item.path}>
-            <Icon icon={item.icon} className={iconStyles} />
+            <div className={subContainerStyles}>
+              <Icon icon={item.icon} className={iconStyles} />
+            </div>
           </Link>
         );
       })}
