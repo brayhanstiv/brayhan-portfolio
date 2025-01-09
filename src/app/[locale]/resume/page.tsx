@@ -1,20 +1,19 @@
 "use client";
 
 // Packages
+import React from "react";
+import { useMediaQuery } from "usehooks-ts";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import {
   Card,
   CardBody,
   CardHeader,
-  Listbox,
-  ListboxItem,
   ScrollShadow,
   Tab,
   Tabs,
+  Tooltip,
 } from "@nextui-org/react";
-import { useMediaQuery } from "usehooks-ts";
-import { ReactNode } from "react";
 
 const about = {
   title: "Acerca de mí",
@@ -32,7 +31,7 @@ const about = {
 
 const experience = {
   icon: "/assets/resume/badge.svg",
-  title: "Mi experiencia",
+  title: "Experiencia",
   description:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure sit saepe maiores reiciendis illo eveniet rerum ducimus molestias, architecto, labore fugiat cupiditate provident, at explicabo iusto obcaecati dolor aut laborum!",
   items: [
@@ -61,7 +60,8 @@ const experience = {
 
 const education = {
   icon: "/assets/resume/cap.svg",
-  title: "Mi formación",
+  title: "Educación",
+  subtitle: "Cursos",
   description:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure sit saepe maiores reiciendis illo eveniet rerum ducimus molestias, architecto, labore fugiat cupiditate provident, at explicabo iusto obcaecati dolor aut laborum!",
   items: [
@@ -71,68 +71,52 @@ const education = {
       duration: "2019 - 2022",
     },
     {
-      company: "Universidad Surcolombiana",
-      position: "Tecnólogo en desarrollo de software",
+      institution: "Universidad Surcolombiana",
+      degree: "Tecnólogo en desarrollo de software",
       duration: "2016 - 2019",
     },
     {
-      company: "SENA",
-      position: "Técnico en Producción Agropecuaria",
+      institution: "SENA",
+      degree: "Técnico en Producción Agropecuaria",
       duration: "2010 - 2011",
     },
   ],
-};
-
-const courses = {
-  icon: "/assets/resume/cap.svg",
-  title: "Mi formación",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure sit saepe maiores reiciendis illo eveniet rerum ducimus molestias, architecto, labore fugiat cupiditate provident, at explicabo iusto obcaecati dolor aut laborum!",
-  items: [
+  courses: [
     {
       institution: "Platzi",
       course: "Cursos en desarrollo frontend",
       duration: "2019 - 2022",
     },
     {
-      company: "Platzi",
-      position: "Cursos en desarrollo backend",
+      institution: "Platzi",
+      course: "Cursos en desarrollo backend",
       duration: "2016 - 2019",
     },
   ],
 };
 
 const skills = {
-  title: "Mis habilidades",
+  title: "Habilidades",
   description:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure sit saepe maiores reiciendis illo eveniet rerum ducimus molestias, architecto, labore fugiat cupiditate provident, at explicabo iusto obcaecati dolor aut laborum!",
   items: [
-    { icon: <Icon icon='' />, name: "Javascript" },
-    { icon: <Icon icon='' />, name: "Typescript" },
-    { icon: <Icon icon='' />, name: "React Js" },
-    { icon: <Icon icon='' />, name: "Vue Js" },
-    { icon: <Icon icon='' />, name: "Vue Js" },
-    { icon: <Icon icon='' />, name: "Next Js" },
-    { icon: <Icon icon='' />, name: "Node Js" },
+    { icon: "simple-icons:react", name: "React Js" },
+    { icon: "simple-icons:nextdotjs", name: "Next Js" },
+    { icon: "simple-icons:vuedotjs", name: "Vue Js" },
+    { icon: "simple-icons:nodedotjs", name: "Node Js" },
+    { icon: "simple-icons:html5", name: "HTML" },
+    { icon: "simple-icons:tailwindcss", name: "Tailwind CSS" },
+    { icon: "simple-icons:typescript", name: "Typescript" },
+    { icon: "simple-icons:nestjs", name: "Nest Js" },
   ],
 };
-
-type ListboxWrapperProps = {
-  children?: ReactNode | ReactNode[];
-};
-
-const ListboxWrapper = ({ children }: ListboxWrapperProps) => (
-  <div className='w-full max-w-[260px] border-small px-1 py-2 rounded-small border-default-200 dark:border-default-100'>
-    {children}
-  </div>
-);
 
 export default function ResumePage() {
   const isMobile = useMediaQuery("(max-width: 1024px)");
 
   return (
     <motion.div
-      className='min-h-[80vh] flex justify-center py-12 xl:py-0'
+      className='min-h-[80vh] flex justify-center py-6 xl:py-0'
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
@@ -158,16 +142,25 @@ export default function ResumePage() {
               </CardHeader>
               <CardBody className='text-white/60 mx-auto xl:mx-0 gap-[30px]'>
                 <p>{experience.description}</p>
-                <ScrollShadow className='h-[400px]'>
+                <ScrollShadow className='h-[400px] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-secondary [&::-webkit-scrollbar-thumb]:rounded-full'>
                   <ul className='grid grid-cols-1 md:grid-cols-2 gap-[30px] justify-items-center'>
                     {experience.items.map((item, index) => {
                       return (
-                        <li>
-                          <span>{item.duration}</span>
-                          <h3>{item.position}</h3>
-                          <div>
-                            <span></span>
-                            <p>{item.company}</p>
+                        <li
+                          key={index}
+                          className='bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center gap-1'
+                        >
+                          <span className='text-accent-default'>
+                            {item.duration}
+                          </span>
+                          <h3 className='text-xl max-w-[260px] min-h-[60px] text-center'>
+                            {item.position}
+                          </h3>
+                          <div className='flex items-center gap-3'>
+                            <span className='w-[5px] h-[5px] rounded-full bg-accent-default'></span>
+                            <p className='text-white/60 text-md'>
+                              {item.company}
+                            </p>
                           </div>
                         </li>
                       );
@@ -179,37 +172,116 @@ export default function ResumePage() {
           </Tab>
 
           {/* Education */}
-          <Tab key='education' title='Formación'>
-            <Card>
-              <CardBody>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </CardBody>
-            </Card>
+          <Tab key='education' title='Educación'>
+            <ScrollShadow className='h-[650px] [&::-webkit-scrollbar]:w-2  [&::-webkit-scrollbar-thumb]:bg-secondary [&::-webkit-scrollbar-thumb]:rounded-full'>
+              <Card className='flex flex-col gap-[30px] text-center xl:text-left'>
+                <CardHeader className='text-4xl font-bold'>
+                  {education.title}
+                </CardHeader>
+                <CardBody className='text-white/60 mx-auto xl:mx-0 gap-[30px]'>
+                  <p>{education.description}</p>
+
+                  <ul className='grid grid-cols-1 md:grid-cols-2 gap-[30px] justify-items-center'>
+                    {education.items.map((item, index) => {
+                      return (
+                        <li
+                          key={index}
+                          className='bg-[#232329] h-[204px] py-6 px-10 rounded-xl flex flex-col justify-center items-center gap-1'
+                        >
+                          <span className='text-accent-default'>
+                            {item.duration}
+                          </span>
+                          <h3 className='text-xl max-w-[260px] min-h-[60px] text-center'>
+                            {item.degree}
+                          </h3>
+                          <div className='flex items-center gap-3'>
+                            <span className='w-[5px] h-[5px] rounded-full bg-accent-default'></span>
+                            <p className='text-white/60 text-md'>
+                              {item.institution}
+                            </p>
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <h4 className='text-4xl font-bold text-white'>
+                    {education.subtitle}
+                  </h4>
+                  <ul className='grid grid-cols-1 md:grid-cols-2 gap-[30px] justify-items-center'>
+                    {education.courses.map((item, index) => {
+                      return (
+                        <li
+                          key={index}
+                          className='bg-[#232329] h-[204px] py-6 px-10 rounded-xl flex flex-col justify-center items-center gap-1'
+                        >
+                          <span className='text-accent-default'>
+                            {item.duration}
+                          </span>
+                          <h3 className='text-xl max-w-[260px] min-h-[60px] text-center'>
+                            {item.course}
+                          </h3>
+                          <div className='flex items-center gap-3'>
+                            <span className='w-[5px] h-[5px] rounded-full bg-accent-default'></span>
+                            <p className='text-white/60 text-md'>
+                              {item.institution}
+                            </p>
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </CardBody>
+              </Card>
+            </ScrollShadow>
           </Tab>
 
           {/* Skills */}
           <Tab key='skills' title='Habilidades'>
-            <Card>
-              <CardBody>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+            <Card className='flex flex-col gap-[30px] py-2'>
+              <CardHeader className='text-4xl font-bold'>
+                {skills.title}
+              </CardHeader>
+              <CardBody className=' mx-auto xl:mx-0 gap-[30px]'>
+                <p className='text-white/60'>{skills.description}</p>
+                <ul className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[30px] justify-items-center'>
+                  {skills.items.map((skill, index) => {
+                    return (
+                      <li key={index}>
+                        <Tooltip content={skill.name}>
+                          <Icon
+                            className='text-6xl hover:text-accent-default transition-all duration-300'
+                            icon={skill.icon}
+                          />
+                        </Tooltip>
+                      </li>
+                    );
+                  })}
+                </ul>
               </CardBody>
             </Card>
           </Tab>
 
           {/* About me */}
           <Tab key='about-me' title='Acerca de mí'>
-            <Card>
-              <CardBody>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+            <Card className='flex flex-col gap-[30px]'>
+              <CardHeader className='text-4xl font-bold'>
+                {about.title}
+              </CardHeader>
+              <CardBody className=' mx-auto xl:mx-0 gap-[30px]'>
+                <p className='text-white/60'>{about.description}</p>
+                <ul className='grid grid-cols-1 md:grid-cols-2 gap-y-6 max-w-[620px] justify-items-center mx-auto xl:mx-0'>
+                  {about.info.map((item, index) => {
+                    return (
+                      <li
+                        key={index}
+                        className='flex items-center justify-center xl:justify-start gap-4'
+                      >
+                        <span className='text-white/60'>{item.fieldName}</span>
+                        <span>{item.fieldValue}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
               </CardBody>
             </Card>
           </Tab>
