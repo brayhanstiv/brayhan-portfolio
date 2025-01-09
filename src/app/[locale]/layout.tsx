@@ -4,7 +4,6 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 import "@/styles/globals.css";
 
@@ -56,7 +55,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html suppressHydrationWarning lang="es">
+    <html suppressHydrationWarning lang='es'>
       <head />
       <body
         className={clsx(
@@ -66,23 +65,12 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider messages={messages}>
           <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-            <div className="relative flex flex-col h-screen">
+            <div className='relative flex flex-col h-screen'>
               <Navbar />
               <StairTransition />
-              <PageTransition className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+              <PageTransition className='container mx-auto max-w-7xl pt-16 px-8 lg:px-16 flex-grow'>
                 {children}
               </PageTransition>
-              <footer className="w-full flex items-center justify-center py-3">
-                <Link
-                  isExternal
-                  className="flex items-center gap-1 text-current"
-                  href="https://nextui-docs-v2.vercel.app?utm_source=next-app-template"
-                  title="nextui.org homepage"
-                >
-                  <span className="text-default-600">Powered by</span>
-                  <p className="text-primary">NextUI</p>
-                </Link>
-              </footer>
             </div>
           </Providers>
         </NextIntlClientProvider>
