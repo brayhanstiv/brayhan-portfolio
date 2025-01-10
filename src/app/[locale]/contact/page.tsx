@@ -18,8 +18,8 @@ const info = [
   },
   {
     icon: "solar:map-point-linear",
-    title: "Address",
-    description: "Cra 31 # 18 E 34",
+    title: "Dirección",
+    description: "Neiva, Cra 31 # 18 E 34",
   },
 ];
 
@@ -37,51 +37,53 @@ export default function ContactPage() {
         opacity: 1,
         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
       }}
-      className="py-6"
+      className='py-6'
     >
-      <div className="container mx-auto">
-        <div className="flex flex-col lg:flex-row gap-[30px]">
+      <div className='container mx-auto'>
+        <div className='flex flex-col lg:flex-row gap-[30px]'>
           {/*Form */}
-          <div className="lg:w-[54%] order-2 lg:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-              <h3 className="text-4xl text-accent-default">
+          <div className='lg:w-[54%] order-2 lg:order-none'>
+            <form className='flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl'>
+              <h3 className='text-4xl text-accent-default'>
                 Trabajemos juntos
               </h3>
-              <p className="text-white/60">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Possimus nam accusantium fugit, saepe nisi asperiores eius
-                expedita accusamus harum deleniti blanditiis atque vitae
-                corrupti cum aspernatur dignissimos delectus dolor tenetur?
+              <p className='text-white/60 leading-relaxed'>
+                Estoy siempre abierto a colaborar en proyectos desafiantes e
+                innovadores. Si buscas un desarrollador Full Stack comprometido
+                con entregar soluciones escalables y de alta calidad, no dudes
+                en contactarme. Me entusiasma trabajar en equipo, aprender
+                nuevas herramientas y contribuir al éxito de proyectos que
+                impacten positivamente a los usuarios.
               </p>
               {/* Input */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                 <Input
-                  type="text"
-                  placeholder="Nombres"
-                  variant="bordered"
-                  color="secondary"
+                  type='text'
+                  placeholder='Nombres'
+                  variant='bordered'
+                  color='secondary'
                 />
                 <Input
-                  type="text"
-                  placeholder="Apellidos"
-                  variant="bordered"
-                  color="secondary"
+                  type='text'
+                  placeholder='Apellidos'
+                  variant='bordered'
+                  color='secondary'
                 />
                 <Input
-                  type="email"
-                  placeholder="Email"
-                  variant="bordered"
-                  color="secondary"
+                  type='email'
+                  placeholder='Email'
+                  variant='bordered'
+                  color='secondary'
                 />
                 <Input
-                  type="phone"
-                  placeholder="Teléfono"
-                  variant="bordered"
-                  color="secondary"
+                  type='phone'
+                  placeholder='Teléfono'
+                  variant='bordered'
+                  color='secondary'
                 />
               </div>
               <Select
-                className="min-w-full"
+                className='min-w-full'
                 classNames={{
                   label: "text-gray-400",
                 }}
@@ -94,10 +96,10 @@ export default function ContactPage() {
                     ],
                   },
                 }}
-                size="sm"
-                label="Selecciona un servicio"
-                variant="bordered"
-                color="secondary"
+                size='sm'
+                label='Selecciona un servicio'
+                variant='bordered'
+                color='secondary'
               >
                 {services.map((item, index) => (
                   <SelectItem key={index}>{item.name}</SelectItem>
@@ -105,27 +107,27 @@ export default function ContactPage() {
               </Select>
               <Textarea
                 minRows={5}
-                placeholder="Escribe tu mensaje aquí"
-                variant="bordered"
-                color="secondary"
+                placeholder='Escribe tu mensaje aquí'
+                variant='bordered'
+                color='secondary'
               />
-              <Button className="max-w-40 text-primary" color="secondary">
+              <Button className='max-w-40 text-primary' color='secondary'>
                 Enviar mensaje
               </Button>
             </form>
           </div>
           {/*Info */}
-          <div className="flex-1 flex items-center lg:justify-end order-1 lg:order-none mb-8 lg:mb-0">
-            <ul className="flex flex-col gap-10">
+          <div className='flex-1 flex items-center lg:justify-end order-1 lg:order-none mb-8 lg:mb-0'>
+            <ul className='flex flex-col gap-10'>
               {info.map((item, index) => {
                 return (
-                  <li key={index} className="flex items-center gap-6">
-                    <div className="w-[52px] h-[52px] lg:w-[72px] lg:h-[72px] bg-[#27272c] text-accent-default rounded-md flex items-center justify-center">
+                  <li key={index} className='flex items-center gap-6'>
+                    <div className='w-[52px] h-[52px] lg:w-[72px] lg:h-[72px] bg-[#27272c] text-accent-default rounded-md flex items-center justify-center'>
                       <Icon icon={item.icon} width={30} />
                     </div>
-                    <div className="flex-1">
-                      <p className="text-white/60">{item.title}</p>
-                      <h3 className="text-xl">{item.description}</h3>
+                    <div className='flex-1'>
+                      <p className='text-white/60'>{item.title}</p>
+                      <h3 className='text-xl'>{item.description}</h3>
                     </div>
                   </li>
                 );

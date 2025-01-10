@@ -1,12 +1,13 @@
 // Packages
+import { siteConfig } from "@/config/site";
 import { Icon } from "@iconify/react";
 import { Link } from "@nextui-org/react";
 import React from "react";
 
 // Contants
 const socials = [
-  { icon: "hugeicons:github", path: "" },
-  { icon: "hugeicons:linkedin-02", path: "" },
+  { icon: "hugeicons:github", path: `${siteConfig.links.github}` },
+  { icon: "hugeicons:linkedin-02", path: `${siteConfig.links.linkedin}` },
 ];
 
 type SocialProps = {

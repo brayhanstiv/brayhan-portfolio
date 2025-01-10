@@ -10,28 +10,28 @@ const services = [
     num: "01",
     title: "Front-end",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, dignissimos consequatur animi labore unde culpa repudiandae quae delectus distinctio quasi.",
+      "Creación de interfaces de usuario interactivas y responsivas que ofrecen una experiencia fluida y atractiva. Con tecnologías como React, HTML, CSS y JavaScript, se desarrollan soluciones visuales que combinan diseño, accesibilidad y rendimiento, garantizando una navegación intuitiva y optimizada en cualquier dispositivo.",
     href: "",
   },
   {
     num: "02",
     title: "Diseño UI/UX",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, dignissimos consequatur animi labore unde culpa repudiandae quae delectus distinctio quasi.",
+      "Creación de interfaces de usuario visualmente atractivas y fáciles de usar, con un enfoque en la experiencia del usuario. Utilizando principios de diseño centrados en el usuario, se desarrollan soluciones que combinan estética, usabilidad y accesibilidad para optimizar la interacción y la satisfacción del usuario.",
     href: "",
   },
   {
     num: "03",
     title: "Back-end",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, dignissimos consequatur animi labore unde culpa repudiandae quae delectus distinctio quasi.",
+      "Construcción de sistemas robustos y escalables, centrados en la gestión eficiente de datos y la integración de servicios. Utilizando tecnologías como Node.js, bases de datos SQL y NoSQL, se crean soluciones seguras y de alto rendimiento que respaldan la funcionalidad de las aplicaciones de manera eficiente.",
     href: "",
   },
   {
     num: "04",
     title: "IA",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, dignissimos consequatur animi labore unde culpa repudiandae quae delectus distinctio quasi.",
+      "Desarrollo e implementación de soluciones basadas en inteligencia artificial para optimizar procesos y mejorar la toma de decisiones. Utilizando técnicas de machine learning, procesamiento de lenguaje natural y análisis predictivo, se crean modelos inteligentes que brindan valor y eficiencia a los proyectos, adaptándose a necesidades específicas.",
     href: "",
   },
 ];

@@ -49,5 +49,6 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/brayhanstiv",
+    linkedin: "https://www.linkedin.com/in/brayhan-suarez-073a49158",
   },
 };

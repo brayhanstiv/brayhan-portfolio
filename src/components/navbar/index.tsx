@@ -31,30 +31,6 @@ export const Navbar = () => {
   const t = useTranslations("Navbar");
   const pathName = usePathname();
 
-  const searchInput = (
-    <Input
-      aria-label='Search'
-      classNames={{
-        inputWrapper: "bg-default-100",
-        input: "text-sm",
-      }}
-      endContent={
-        <Kbd className='hidden lg:inline-block' keys={["command"]}>
-          K
-        </Kbd>
-      }
-      labelPlacement='outside'
-      placeholder='Search...'
-      startContent={
-        <Icon
-          className='text-base text-default-400 pointer-events-none flex-shrink-0'
-          icon='solar:magnifer-outline'
-        />
-      }
-      type='search'
-    />
-  );
-
   return (
     <>
       <NextUINavbar maxWidth='full' position='sticky'>
@@ -96,16 +72,19 @@ export const Navbar = () => {
         >
           <NavbarItem className='hidden sm:flex gap-2'>
             <ThemeSwitch />
-            <Button color='secondary' className='text-black '>
+            <Link
+              color='secondary'
+              isExternal
+              className='text-black bg-accent-default rounded-lg py-2 px-3'
+              href='https://api.whatsapp.com/send?phone=+573214576287&text=%C2%A1Hola!%20%F0%9F%91%8B%20Gracias%20por%20contactarme.%20Por%20favor%20deja%20tu%20mensaje.'
+            >
               {t("hire_me")}
-            </Button>
+            </Link>
           </NavbarItem>
-          <NavbarItem className='hidden lg:flex'>{searchInput}</NavbarItem>
         </NavbarContent>
 
         {/* Nav menu */}
         <NavbarMenu>
-          {searchInput}
           <div className='mx-4 mt-2 md:flex flex-col gap-2'>
             {siteConfig.navMenuItems.map((item, index) => (
               <NavbarMenuItem key={`${item}-${index}`} className='mb-2'>
